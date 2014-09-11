@@ -1,0 +1,33 @@
+```{r, eval = FALSE}
+filename <- "National_Downloadable_File.csv"
+if (!file.exists(filename) {
+    download.file("https://data.medicare.gov/views/bg9k-emty/files/QE8tOSxD5tVVN7LcpQE7s9BU4zNsegwD7nJgJLNOaaQ?filename=Physician_Compare_Databases.zip&content_type=application%2Fzip%3B%20charset%3Dbinary", destfile = "Physician_Compare_Databases")
+    setwd(C:/Users/knarf/Desktop)
+    unzipped <- unzip("Physician_Compare_Databases.zip", file = "Physician_Compare_Databases/National_Downloadable_File.csv")
+    phys <- read.csv(unzipped)
+    }
+}
+```
+
+```{r}
+set.seed(5847)
+phys_small <- phys[sample(nrow(phys), 2000), ]
+```
+
+# Research Questions
+
+1. What are characteristics of Medicare physicians who use EHR?
+
+2. Medicare physicians who use EHR can be dependent on graduation year (5 years before while EHRs were big).
+
+```{r}
+pqrs_y <- phys_small[phys_small$Participating.in.PQRS == "Y", ]
+
+```
+
+
+
+
+
+
+
