@@ -6,8 +6,13 @@ fileName <- "National_Downloadable_File.csv"
 zipName <- "Physician_Compare_Databases"
 destFile <- sprintf("%s/%s", zipName, fileName)
 zipName <- "Physician_Compare_Databases.zip"
-if(!file.exists(filename)){
+if(!file.exists(fileName)){
     download.file(url, zipName, method = "curl")
     unzip(zipfile = zipName, files = destFile)
 }
-df <- read.csv(destFile)
+df <- read.csv(destFile, stringsAsFactors = FALSE, nrow = 10000)
+
+
+colnames(df)
+
+which(is.na(df$Organization.legal.name))
